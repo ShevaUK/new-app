@@ -24,13 +24,13 @@ const columns = [
         key: 'address',
     },
 ];
-const removeBook=(bookId)=>fetch(`http://localhost:8080/api/tutorials/${bookId}`,{
+const removeBook=(bookId)=>fetch(`https://web-production-b461.up.railway.app/guest/tutorials/${bookId}`,{
     method: "DELETE", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
     }
     });
-const addBook=(title,description)=>fetch('http://localhost:8080/api/tutorials',{
+const addBook=(title,description)=>fetch('https://web-production-b461.up.railway.app/guest/tutorials',{
     method: "POST", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const addBook=(title,description)=>fetch('http://localhost:8080/api/tutorials',{
 })
 
 
-const updateBook=(title,description,bookId)=>fetch(`http://localhost:8080/api/tutorials/${bookId}`,{
+const updateBook=(title,description,bookId)=>fetch(`https://web-production-b461.up.railway.app/guest/tutorials/${bookId}`,{
     method: "PUT", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const updateBook=(title,description,bookId)=>fetch(`http://localhost:8080/api/tu
         published: false}),
 
 })
-const filtrPublished=(published)=>fetch(`http://localhost:8080/api/tutorials${!published ? "" : "/published" }`,{
+const filtrPublished=(published)=>fetch(`https://web-production-b461.up.railway.app/guest/tutorials${!published ? "" : "/published" }`,{
     method: "GET", // or 'PUT'
     headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function Table1() {
     const [description,setDescription]=useState("Hi");
     const queryClient = useQueryClient()
     const bookGet = useQuery('repoData', () =>
-        fetch('http://localhost:8080/api/tutorials').then(res =>
+        fetch('https://web-production-b461.up.railway.app/guest/tutorials').then(res =>
             res.json()
         )
     );
